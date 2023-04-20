@@ -33,9 +33,6 @@ public class ArrayTests {
   public void testReverseInPlace2(){
     int[] input = {0,1,2,3,4};
     ArrayExamples.reverseInPlace(input);
-    for(int i : input) {
-      System.out.print(i + " ");
-    }
     assertArrayEquals(new int[]{4,3,2,1,0}, input);
   }
 
@@ -43,5 +40,47 @@ public class ArrayTests {
   public void testReversed2() {
     int[] input = {0,1,2,3,4};
     assertArrayEquals(new int[]{4,3,2,1,0}, ArrayExamples.reversed(input));
+  }
+
+  @Test
+  public void testMean_LowestZero() {
+    double[] input = {0,1.2,3};
+    assertEquals((Double)2.1, (Double)ArrayExamples.averageWithoutLowest(input));
+  }
+
+  @Test
+  public void testMean_Empty() {
+    double[] input = {};
+    assertEquals((Double)0.0, (Double)ArrayExamples.averageWithoutLowest(input));
+  }
+
+  @Test
+  public void testMean_Zero() {
+    double[] input = {0};
+    assertEquals((Double)0.0, (Double)ArrayExamples.averageWithoutLowest(input)); 
+  }
+
+  @Test
+  public void testMean_OneVal() {
+    double[] input = {3};
+    assertEquals((Double)0.0, (Double)ArrayExamples.averageWithoutLowest(input)); 
+  }
+
+  @Test
+  public void testMean_LowestNeg() {
+    double[] input = {-1,0,2};
+    assertEquals((Double)1.0, (Double)ArrayExamples.averageWithoutLowest(input)); 
+  }
+
+  @Test
+  public void testMean_LargeArr() {
+    double[] input = {0,1,2,3,4,5,6};
+    assertEquals((Double)3.5, (Double)ArrayExamples.averageWithoutLowest(input)); 
+  }
+
+  @Test
+  public void testMean_ManyNeg() {
+    double[] input = {-1.3,1.1,-3.1,5.6,-2,4.8};
+    assertEquals((Double)1.64, (Double)ArrayExamples.averageWithoutLowest(input)); 
   }
 }
