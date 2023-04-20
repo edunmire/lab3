@@ -17,6 +17,18 @@ public class ArrayTests {
   }
 
   @Test
+  public void testReversed_OneVal() {
+    int[] input1 = {0};
+    assertArrayEquals(new int[]{0}, ArrayExamples.reversed(input1));
+  }
+
+  @Test
+  public void testReversed2() {
+    int[] input = {0,1,2,3,4};
+    assertArrayEquals(new int[]{4,3,2,1,0}, ArrayExamples.reversed(input));
+  }
+
+  @Test
   public void testReverseInPlaceSize() {
     int[] input = {0,1,2};
     ArrayExamples.reverseInPlace(input);
@@ -34,12 +46,6 @@ public class ArrayTests {
     int[] input = {0,1,2,3,4};
     ArrayExamples.reverseInPlace(input);
     assertArrayEquals(new int[]{4,3,2,1,0}, input);
-  }
-
-  @Test
-  public void testReversed2() {
-    int[] input = {0,1,2,3,4};
-    assertArrayEquals(new int[]{4,3,2,1,0}, ArrayExamples.reversed(input));
   }
 
   @Test
